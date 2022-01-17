@@ -1,9 +1,10 @@
 import Head from 'next/head'
 
-import { getEvents, getPosts } from '../utils/wordpress';
+import {  getPosts } from '../utils/wordpress';
+// import { getEvents, getPosts } from '../utils/wordpress';
 
 import Post from "../components/Post";
-import Event from "../components/Event";
+// import Event from "../components/Event";
 
 // export default function Home({posts, events}) {
 export default function Home({posts}) {
