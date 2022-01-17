@@ -12,18 +12,18 @@ export async function getPost(slug) {
   const post = postArray.length > 0 ? postArray[0] : null;
   return post;
 }
-export async function getEvents() {
-  const eventsRes = await fetch(BASE_URL + "/events?_embed");
-  const events = await eventsRes.json();
-  return events;
-}
+// export async function getEvents() {
+//   const eventsRes = await fetch(BASE_URL + "/events?_embed");
+//   const events = await eventsRes.json();
+//   return events;
+// }
 
-export async function getEvent(slug) {
-  const events = await getEvents();
-  const eventArray = events.filter((event) => event.slug == slug);
-  const event = eventArray.length > 0 ? eventArray[0] : null;
-  return event;
-}
+// export async function getEvent(slug) {
+//   const events = await getEvents();
+//   const eventArray = events.filter((event) => event.slug == slug);
+//   const event = eventArray.length > 0 ? eventArray[0] : null;
+//   return event;
+// }
 
 export async function getSlugs(type) {
   let elements = [];
@@ -31,9 +31,9 @@ export async function getSlugs(type) {
     case "posts":
       elements = await getPosts();
       break;
-    case "events":
-      elements = await getEvents();
-      break;
+    // case "events":
+    //   elements = await getEvents();
+    //   break;
   }
   const elementsIds = elements.map((element) => {
     return {

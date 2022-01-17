@@ -5,7 +5,8 @@ import { getEvents, getPosts } from '../utils/wordpress';
 import Post from "../components/Post";
 import Event from "../components/Event";
 
-export default function Home({posts, events}) {
+// export default function Home({posts, events}) {
+export default function Home({posts}) {
 
   const jsxPosts = posts.map(post => {
     const featuredMedia = post['_embedded']['wp:featuredmedia'][0];
@@ -14,12 +15,12 @@ export default function Home({posts, events}) {
     )
   });
 
-  const jsxEvents = events.map(event => {
-    const featuredMedia = event['_embedded']['wp:featuredmedia'][0];
-    return (
-      <Event event={event} featuredMedia={featuredMedia} key={event.id}/>
-    )
-  });
+//   const jsxEvents = events.map(event => {
+//     const featuredMedia = event['_embedded']['wp:featuredmedia'][0];
+//     return (
+//       <Event event={event} featuredMedia={featuredMedia} key={event.id}/>
+//     )
+//   });
 
   return (
     <>
@@ -38,8 +39,8 @@ export default function Home({posts, events}) {
             {jsxPosts}
           </div>
           <div className="col-lg-4">
-            <h2 className="pb-3">Events</h2>
-            {jsxEvents}
+            {/* <h2 className="pb-3">Events</h2> */}
+            {/* {jsxEvents} */}
           </div>
         </div>
       </div>
@@ -51,11 +52,11 @@ export default function Home({posts, events}) {
 export async function getStaticProps({ params }) {
 
   const posts = await getPosts();
-  const events = await getEvents();
+//   const events = await getEvents();
   return {
     props: {
      posts,
-     events
+    //  events
     },
     revalidate: 10, // In seconds
   }
